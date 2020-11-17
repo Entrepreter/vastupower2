@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "701304551534",
+    "firebase_url": "https://vastupower0.firebaseio.com",
+    "project_id": "vastupower0",
+    "storage_bucket": "vastupower0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:701304551534:android:0399ef939ee21a42370e7f",
+        "android_client_info": {
+          "package_name": "com.appzapp.vastupower"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "701304551534-n7ivtujk3oh54uua8jrs99vfb119qnuo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appzapp.vastupower",
+            "certificate_hash": "5353fdd60da12646f40334aa9edd7020d20bc639"
+          }
+        },
+        {
+          "client_id": "701304551534-caegnc8q0dt9b0colef9coko9b030nkg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLPZRKPIpIZIoOiQ_f_slwrzASMS3X_ZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "701304551534-caegnc8q0dt9b0colef9coko9b030nkg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

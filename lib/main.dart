@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 import 'dart:math';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:vastupower/gates.dart';
 import 'package:vastupower/objects.dart';
+import 'package:vastupower/article.dart';
+import 'package:vastupower/support.dart';
 
 
 void main() {
@@ -12,6 +16,7 @@ void main() {
     runApp(Compass());
   });
 }
+Color mycolor = Colors.orange;
 
 class Compass extends StatefulWidget {
   @override
@@ -72,6 +77,13 @@ class CompassRed extends StatelessWidget {
             Container(
               child: Image.asset('assets/upper1.jpg'),
             ),
+            Container(
+              child: Text('|',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold
+              ),),
+            ),
 
             Expanded(
               flex: 4,
@@ -93,7 +105,7 @@ class CompassRed extends StatelessWidget {
                   '$_direction',
                   style: TextStyle(
                       fontSize: 30,
-                      color: Colors.deepOrange,
+                      color: mycolor,
                       fontWeight: FontWeight.bold
                   ),
                 ),
@@ -113,7 +125,7 @@ class CompassRed extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.white
                       ),),
-                      color: Colors.deepOrange,
+                      color: mycolor,
                       onPressed: (){
                         Navigator.push(
                           context,
@@ -126,7 +138,14 @@ class CompassRed extends StatelessWidget {
                     width: 10,
                   ),
                   Expanded(
+
                     child: RaisedButton(
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Gates()),
+                        );
+                      },
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
                       ),
@@ -135,8 +154,7 @@ class CompassRed extends StatelessWidget {
                             color: Colors.white
                         ),
                       ),
-                      color: Colors.deepOrange,
-                      onPressed: (){},
+                      color: mycolor,
                     ),
                   ),
                   SizedBox(
@@ -151,8 +169,13 @@ class CompassRed extends StatelessWidget {
                         style: TextStyle(
                             color: Colors.white
                         ),),
-                      color: Colors.deepOrange,
-                      onPressed: (){},
+                      color: mycolor,
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Article()),
+                        );
+                      },
                     ),
                   ),
                 ],
@@ -170,7 +193,7 @@ class CompassRed extends StatelessWidget {
                         style: TextStyle(
                             color: Colors.white
                         ),),
-                      color: Colors.deepOrange,
+                      color: mycolor,
                       onPressed: (){},
                     ),
                   ),
@@ -187,7 +210,7 @@ class CompassRed extends StatelessWidget {
                               color: Colors.white,
                           ),),
 
-                      color: Colors.deepOrange,
+                      color: mycolor,
                       onPressed: (){},
                     ),
                   ),
@@ -199,12 +222,17 @@ class CompassRed extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
                       ),
-                      child: Text('CONTACTS',
+                      child: Text('SUPPORT',
                         style: TextStyle(
                             color: Colors.white
                         ),),
-                      color: Colors.deepOrange,
-                      onPressed: (){},
+                      color: mycolor,
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Support()),
+                        );
+                      },
                     ),
                   ),
                 ],

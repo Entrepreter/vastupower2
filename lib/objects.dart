@@ -40,26 +40,131 @@ class _objectsState extends State<objects> {
             onTap: (){
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Direction()),
+                MaterialPageRoute(builder: (context) => Direction('Television')),
               );
             },
           ),
 
-          Catog(FaIcon(FontAwesomeIcons.soap),'Washing machine'),
-          Catog(FaIcon(FontAwesomeIcons.fire),'Heater'),
-          Catog(FaIcon(FontAwesomeIcons.medkit),'Medicine'),
-          Catog(FaIcon(FontAwesomeIcons.music),'Music'),
-          Catog(FaIcon(FontAwesomeIcons.book),'Study Table'),
-          Catog(FaIcon(FontAwesomeIcons.bed),'bed'),
-          Catog(FaIcon(FontAwesomeIcons.recycle),'Dustbin'),
-          Catog(FaIcon(FontAwesomeIcons.female),'Mirror'),
-          Catog(FaIcon(FontAwesomeIcons.laptop),'Computer'),
-          Catog(FaIcon(FontAwesomeIcons.lightbulb),'Invertor'),
-          Catog(FaIcon(FontAwesomeIcons.thermometer),'Metre of Fuse box'),
-          Catog(FaIcon(FontAwesomeIcons.lock),'Safe'),
-          Catog(FaIcon(FontAwesomeIcons.brush),'Dressing table'),
-          Catog(FaIcon(FontAwesomeIcons.fish),'Aquarium'),
-          Catog(FaIcon(FontAwesomeIcons.dog),'Pets'),
+          InkWell(child: Catog(FaIcon(FontAwesomeIcons.soap),'Washing\nMachine'),
+            splashColor: Colors.blue,
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Direction('WM')),
+              );
+            },),
+          InkWell(child: Catog(FaIcon(FontAwesomeIcons.fire),'Heater'),
+            splashColor: Colors.blue,
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Direction('Heater')),
+              );
+            },),
+          InkWell(child: Catog(FaIcon(FontAwesomeIcons.medkit),'Medicine'),
+            splashColor: Colors.blue,
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Direction('Medicine')),
+              );
+            },),
+          InkWell(child: Catog(FaIcon(FontAwesomeIcons.music),'Music'),
+            splashColor: Colors.blue,
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Direction('Music')),
+              );
+            },),
+          InkWell(child: Catog(FaIcon(FontAwesomeIcons.book),'Study Table'),
+            splashColor: Colors.blue,
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Direction('Study table')),
+              );
+            },),
+          InkWell(child: Catog(FaIcon(FontAwesomeIcons.bed),'Bed'),
+            splashColor: Colors.blue,
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Direction('Bed')),
+              );
+            },),
+          InkWell(child: Catog(FaIcon(FontAwesomeIcons.recycle),'Dustbin'),
+            splashColor: Colors.blue,
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Direction('Dustbin')),
+              );
+            },),
+          InkWell(child: Catog(FaIcon(FontAwesomeIcons.female),'Mirror'),
+            splashColor: Colors.blue,
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Direction('Mirror')),
+              );
+            },),
+          InkWell(child: Catog(FaIcon(FontAwesomeIcons.laptop),'Computer'),
+            splashColor: Colors.blue,
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Direction('Computer')),
+              );
+            },),
+          InkWell(child: Catog(FaIcon(FontAwesomeIcons.lightbulb),'Invertor'),
+            splashColor: Colors.blue,
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Direction('Inverter')),
+              );
+            },),
+          InkWell(child: Catog(FaIcon(FontAwesomeIcons.thermometer),'Fuse box'),
+            splashColor: Colors.blue,
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Direction('METER OR FUSEBOX')),
+              );
+            },),
+          InkWell(child: Catog(FaIcon(FontAwesomeIcons.lock),'Safe'),
+            splashColor: Colors.blue,
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Direction('Safe')),
+              );
+            },),
+          InkWell(child: Catog(FaIcon(FontAwesomeIcons.brush),'Dressing\nTable'),
+            splashColor: Colors.blue,
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Direction('Dressing Table')),
+              );
+            },),
+          InkWell(child: Catog(FaIcon(FontAwesomeIcons.fish),'Aquarium'),
+            splashColor: Colors.blue,
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Direction('Aquarium')),
+              );
+            },),
+          InkWell(child: Catog(FaIcon(FontAwesomeIcons.dog),'Pets'),
+            splashColor: Colors.blue,
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Direction('Pets')),
+              );
+            },),
 
         ],
       )
@@ -67,12 +172,12 @@ class _objectsState extends State<objects> {
   }
 }
 
-Catog(FaIcon icon, String name){
+Widget Catog(FaIcon icon, String name){
   return  Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(18.0),
       ),
-      color: Colors.deepOrange,
+      color: Colors.orange,
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
