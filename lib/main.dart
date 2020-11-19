@@ -7,13 +7,16 @@ import 'package:vastupower/gates.dart';
 import 'package:vastupower/objects.dart';
 import 'package:vastupower/article.dart';
 import 'package:vastupower/support.dart';
+import 'package:vastupower/supsciption.dart';
+
+import 'login.dart';
 
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]) // this forces the app to keep portrait orientation- No Matter What
       .then((_) {
-    runApp(Compass());
+    runApp(Login());
   });
 }
 Color mycolor = Colors.orange;
@@ -211,7 +214,12 @@ class CompassRed extends StatelessWidget {
                           ),),
 
                       color: mycolor,
-                      onPressed: (){},
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Subscribe()),
+                        );
+                      },
                     ),
                   ),
                   SizedBox(
