@@ -4,36 +4,36 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:vastupower/objects.dart';
 
-class Remedy extends StatefulWidget {
-
-  Remedy(this.object,this.direction) : super();
-
-  String object,direction;
-
-  @override
-  _RemedyState createState() => _RemedyState();
-}
-
-class _RemedyState extends State<Remedy> {
-  @override
-  void initState() {
-    super.initState();
-    Firebase.initializeApp().whenComplete(() {
-      //print("completed");
-      setState(() {
-
-      });
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-
-    return MaterialApp(
-      home: remedies(widget.object,widget.direction),
-    );
-  }
-}
+//class Remedy extends StatefulWidget {
+//
+//  Remedy(this.object,this.direction) : super();
+//
+//  String object,direction;
+//
+//  @override
+//  _RemedyState createState() => _RemedyState();
+//}
+//
+//class _RemedyState extends State<Remedy> {
+//  @override
+//  void initState() {
+//    super.initState();
+//    Firebase.initializeApp().whenComplete(() {
+//      //print("completed");
+//      setState(() {
+//
+//      });
+//    });
+//  }
+//
+//  @override
+//  Widget build(BuildContext context) {
+//
+//    return MaterialApp(
+//      home: remedies(widget.object,widget.direction),
+//    );
+//  }
+//}
 
 class remedies extends StatefulWidget {
 
@@ -50,6 +50,12 @@ class _remediesState extends State<remedies> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: InkWell(
+          child: Icon(Icons.arrow_back),
+          onTap: (){
+            Navigator.pop(context);
+          },
+        ),
         title: Text('DESCRIPTION'),
         backgroundColor: Colors.blue,
       ),

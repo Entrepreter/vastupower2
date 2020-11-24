@@ -4,17 +4,17 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vastupower/remedy.dart';
 
 
-class Direction extends StatelessWidget {
-  Direction(this.object) : super();
-  String object;
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Direct(object),
-    );
-  }
-}
+//class Direction extends StatelessWidget {
+//  Direction(this.object) : super();
+//  String object;
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    return MaterialApp(
+//      home: Direct(object),
+//    );
+//  }
+//}
 
 
 class Direct extends StatefulWidget {
@@ -32,6 +32,12 @@ class _DirectState extends State<Direct> {
     return Scaffold(
       appBar: AppBar(
         title: Text('DIRECTIONS'),
+        leading: InkWell(
+          child: Icon(Icons.arrow_back),
+          onTap: (){
+            Navigator.pop(context);
+          },
+        ),
         backgroundColor: Colors.blue,
       ),
       body: Container(
@@ -44,7 +50,7 @@ class _DirectState extends State<Direct> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Remedy(widget.object,'North')),
+                    MaterialPageRoute(builder: (context) => remedies(widget.object,'North')),
                   );
                 },
                 child: Compass('North')
@@ -54,7 +60,7 @@ class _DirectState extends State<Direct> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Remedy(widget.object,'East')),
+                  MaterialPageRoute(builder: (context) => remedies(widget.object,'East')),
                 );
               },
               child: Compass('East')
@@ -64,7 +70,7 @@ class _DirectState extends State<Direct> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Remedy(widget.object,'South')),
+                    MaterialPageRoute(builder: (context) => remedies(widget.object,'South')),
                   );
                 },
                 child: Compass('South')
@@ -74,7 +80,7 @@ class _DirectState extends State<Direct> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Remedy(widget.object,'West')),
+                    MaterialPageRoute(builder: (context) => remedies(widget.object,'West')),
                   );
                 },
                 child: Compass('West')
@@ -84,7 +90,7 @@ class _DirectState extends State<Direct> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Remedy(widget.object,'ENE')),
+                    MaterialPageRoute(builder: (context) => remedies(widget.object,'ENE')),
                   );
                 },
                 child: Compass('ENE')
@@ -94,7 +100,7 @@ class _DirectState extends State<Direct> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Remedy(widget.object,'NE')),
+                    MaterialPageRoute(builder: (context) => remedies(widget.object,'NE')),
                   );
                 },
                 child: Compass('NE')
@@ -104,7 +110,7 @@ class _DirectState extends State<Direct> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Remedy(widget.object,'NNE')),
+                    MaterialPageRoute(builder: (context) =>remedies(widget.object,'NNE')),
                   );
                 },
                 child: Compass('NNE')
@@ -114,7 +120,7 @@ class _DirectState extends State<Direct> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Remedy(widget.object,'NNW')),
+                    MaterialPageRoute(builder: (context) => remedies(widget.object,'NNW')),
                   );
                 },
                 child: Compass('NNW')
@@ -124,7 +130,7 @@ class _DirectState extends State<Direct> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Remedy(widget.object,'NW')),
+                    MaterialPageRoute(builder: (context) => remedies(widget.object,'NW')),
                   );
                 },
                 child: Compass('NW')
@@ -134,7 +140,7 @@ class _DirectState extends State<Direct> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Remedy(widget.object,'WNW')),
+                    MaterialPageRoute(builder: (context) => remedies(widget.object,'WNW')),
                   );
                 },
                 child: Compass('WNW')
@@ -144,7 +150,7 @@ class _DirectState extends State<Direct> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Remedy(widget.object,'WSW')),
+                    MaterialPageRoute(builder: (context) => remedies(widget.object,'WSW')),
                   );
                 },
                 child: Compass('WSW')
@@ -154,7 +160,7 @@ class _DirectState extends State<Direct> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Remedy(widget.object,'SW')),
+                    MaterialPageRoute(builder: (context) => remedies(widget.object,'SW')),
                   );
                 },
                 child: Compass('SW')
@@ -164,7 +170,7 @@ class _DirectState extends State<Direct> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Remedy(widget.object,'SSW')),
+                    MaterialPageRoute(builder: (context) => remedies(widget.object,'SSW')),
                   );
                 },
                 child: Compass('SSW')
@@ -174,7 +180,7 @@ class _DirectState extends State<Direct> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Remedy(widget.object,'SSE')),
+                    MaterialPageRoute(builder: (context) => remedies(widget.object,'SSE')),
                   );
                 },
                 child: Compass('SSE')
@@ -184,7 +190,7 @@ class _DirectState extends State<Direct> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Remedy(widget.object,'SE')),
+                    MaterialPageRoute(builder: (context) => remedies(widget.object,'SE')),
                   );
                 },
                 child: Compass('SE')
@@ -194,7 +200,7 @@ class _DirectState extends State<Direct> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Remedy(widget.object,'ESE')),
+                    MaterialPageRoute(builder: (context) => remedies(widget.object,'ESE')),
                   );
                 },
                 child: Compass('ESE')

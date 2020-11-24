@@ -1,21 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vastupower/directions.dart';
 
-class Article extends StatefulWidget {
-  @override
-  _ArticleState createState() => _ArticleState();
-}
-
-class _ArticleState extends State<Article> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: articles(),
-    );
-  }
-}
+//class Article extends StatefulWidget {
+//  @override
+//  _ArticleState createState() => _ArticleState();
+//}
+//
+//class _ArticleState extends State<Article> {
+//  @override
+//  Widget build(BuildContext context) {
+//    return MaterialApp(
+//      home: articles(),
+//    );
+//  }
+//}
 
 class articles extends StatefulWidget {
   @override
@@ -27,6 +28,12 @@ class _articlesState extends State<articles> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          leading: InkWell(
+            child: Icon(Icons.arrow_back),
+            onTap: (){
+              Navigator.pop(context);
+            },
+          ),
           title: Text('ARTICLES'),
           backgroundColor: Colors.blue,
         ),
@@ -39,7 +46,7 @@ class _articlesState extends State<articles> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Direction('Bedroom')),
+                  MaterialPageRoute(builder: (context) => Direct('Bedroom')),
                 );
               },
             ),
@@ -49,7 +56,7 @@ class _articlesState extends State<articles> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Direction('Drawing Room')),
+                  MaterialPageRoute(builder: (context) => Direct('Drawing Room')),
                 );
               },),
             InkWell(child: Catog(FaIcon(FontAwesomeIcons.hamburger),'Dining\nRoom'),
@@ -57,7 +64,7 @@ class _articlesState extends State<articles> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Direction('Dining Room')),
+                  MaterialPageRoute(builder: (context) => Direct('Dining Room')),
                 );
               },),
             InkWell(child: Catog(FaIcon(FontAwesomeIcons.playstation),'Family &\nLounge'),
@@ -65,7 +72,7 @@ class _articlesState extends State<articles> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Direction('Family & Lounge')),
+                  MaterialPageRoute(builder: (context) => Direct('Family & Lounge')),
                 );
               },),
             InkWell(child: Catog(FaIcon(FontAwesomeIcons.utensilSpoon),'Kitchen'),
@@ -73,7 +80,7 @@ class _articlesState extends State<articles> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Direction('Kitchen')),
+                  MaterialPageRoute(builder: (context) => Direct('Kitchen')),
                 );
               },),
             InkWell(child: Catog(FaIcon(FontAwesomeIcons.toilet),'Toilet'),
@@ -81,7 +88,7 @@ class _articlesState extends State<articles> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Direction('Toilet')),
+                  MaterialPageRoute(builder: (context) => Direct('Toilet')),
                 );
               },),
             InkWell(child: Catog(FaIcon(FontAwesomeIcons.beer),'Bar'),
@@ -89,7 +96,7 @@ class _articlesState extends State<articles> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Direction('Bar')),
+                  MaterialPageRoute(builder: (context) => Direct('Bar')),
                 );
               },),
             InkWell(child: Catog(FaIcon(FontAwesomeIcons.fire),'Pooja Room'),
@@ -97,7 +104,7 @@ class _articlesState extends State<articles> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Direction('Pooja Room')),
+                  MaterialPageRoute(builder: (context) => Direct('Pooja Room')),
                 );
               },),
             InkWell(child: Catog(FaIcon(FontAwesomeIcons.book),'Study Room'),
@@ -105,7 +112,7 @@ class _articlesState extends State<articles> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Direction('Study Room')),
+                  MaterialPageRoute(builder: (context) => Direct('Study Room')),
                 );
               },),
             InkWell(child: Catog(FaIcon(FontAwesomeIcons.male),'Servant\nRoom'),
@@ -113,7 +120,7 @@ class _articlesState extends State<articles> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Direction('Servant Room')),
+                  MaterialPageRoute(builder: (context) => Direct('Servant Room')),
                 );
               },),
             InkWell(child: Catog(FaIcon(FontAwesomeIcons.toiletPaper),'Septic Tank'),
@@ -121,7 +128,7 @@ class _articlesState extends State<articles> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Direction('Septic Tank')),
+                  MaterialPageRoute(builder: (context) => Direct('Septic Tank')),
                 );
               },),
             InkWell(child: Catog(FaIcon(FontAwesomeIcons.plus),'Security\nRoom'),
@@ -129,7 +136,7 @@ class _articlesState extends State<articles> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Direction('Security Room')),
+                  MaterialPageRoute(builder: (context) => Direct('Security Room')),
                 );
               },),
             InkWell(child: Catog(FaIcon(FontAwesomeIcons.store),'Store'),
@@ -137,7 +144,7 @@ class _articlesState extends State<articles> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Direction('Store')),
+                  MaterialPageRoute(builder: (context) => Direct('Store')),
                 );
               },),
             InkWell(child: Catog(FaIcon(FontAwesomeIcons.male),'Guest Room'),
@@ -145,7 +152,7 @@ class _articlesState extends State<articles> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Direction('Guest Room')),
+                  MaterialPageRoute(builder: (context) => Direct('Guest Room')),
                 );
               },),
 
@@ -154,7 +161,7 @@ class _articlesState extends State<articles> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Direction('Staircase')),
+                  MaterialPageRoute(builder: (context) => Direct('Staircase')),
                 );
               },),
             InkWell(child: Catog(FaIcon(FontAwesomeIcons.arrowDown),'Basement'),
@@ -162,7 +169,7 @@ class _articlesState extends State<articles> {
               onTap: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Direction('Basement')),
+                  MaterialPageRoute(builder: (context) => Direct('Basement')),
                 );
               },),
 

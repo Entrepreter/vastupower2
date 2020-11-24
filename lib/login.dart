@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -75,16 +76,6 @@ class _loginpageState extends State<loginpage> {
   Widget build(BuildContext context) {
     return  Scaffold(
       resizeToAvoidBottomPadding: false,
-        //backgroundColor: Colors.black87,
-          backgroundColor: Colors.transparent,
-//            leading: IconButton(
-//                icon: Icon(Icons.arrow_back_ios), onPressed: () {  AlertDialog(
-//              title: Text('Very, very large title', textScaleFactor: 5),
-//              content: Text('Very, very large content', textScaleFactor: 5),
-//              actions: <Widget>[
-//                FlatButton(child: Text('Button 1'), onPressed: () {}),
-//              ],
-//            );}),
 
         body: Container(
           decoration: BoxDecoration(
@@ -118,42 +109,48 @@ class _loginpageState extends State<loginpage> {
       Expanded(
         child: Column(
           children: <Widget>[
-            TextFormField(
+            Padding(
+              padding: const EdgeInsets.only(left: 30,right: 30),
+              child: TextFormField(
 
-              decoration: InputDecoration(
-                fillColor: Colors.white,
-                filled: true,
+                decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
 
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                hintText: 'YOUR EMAIL',
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  hintText: 'YOUR EMAIL',
+                ),
+                validator: (value) {
+                  return value.isEmpty ? 'Email is required' : null;
+                },
+                onSaved: (value) {
+                  return _email = value;
+                },
               ),
-              validator: (value) {
-                return value.isEmpty ? 'Email is required' : null;
-              },
-              onSaved: (value) {
-                return _email = value;
-              },
             ),
             SizedBox(
               height: 40,
             ),
-            TextFormField(
-              obscureText: true,
-              decoration: InputDecoration(
-                fillColor: Colors.white,
-                filled: true,
+            Padding(
+              padding: const EdgeInsets.only(left: 30,right: 30),
+              child: TextFormField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
 
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                hintText: 'YOUR PASSWORD',
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  hintText: 'YOUR PASSWORD',
+                ),
+                validator: (value) {
+                  return value.isEmpty ? 'Password is required' : null;
+                },
+                onSaved: (value) {
+                  return _password = value;
+                },
               ),
-              validator: (value) {
-                return value.isEmpty ? 'Password is required' : null;
-              },
-              onSaved: (value) {
-                return _password = value;
-              },
             ),
           ],
         ),
@@ -224,6 +221,7 @@ class _loginpageState extends State<loginpage> {
        UserCredential user = await FirebaseAuth.instance
             .signInWithEmailAndPassword(email: _email, password: _password);
         print('Im in');
+
         Navig();
       }
       catch (e) {
@@ -234,7 +232,7 @@ class _loginpageState extends State<loginpage> {
   }
 
   void Navig() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => Compass()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Compass(_email)));
   }
 
   Future<void> SignUp() async {
@@ -253,6 +251,30 @@ class _loginpageState extends State<loginpage> {
         print(e.message);
       }
     }
+
+
+
+    CollectionReference doc = Firestore.instance.collection("users");
+    doc.add
+    ({
+      "username": _email,
+      "paid" : false,
+      "startTime" : Currenttime(),
+      "endTime" : Endtime()
+    });
+
   }
+
 }
 
+DateTime today;
+
+DateTime Currenttime(){
+   today = new DateTime.now();
+  return today;
+}
+
+DateTime Endtime(){
+  DateTime end = today.add(Duration(days: 3));
+  return end;
+}

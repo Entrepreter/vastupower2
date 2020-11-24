@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Support extends StatefulWidget {
-  @override
-  _SupportState createState() => _SupportState();
-}
-
-class _SupportState extends State<Support> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: support(),
-    );
-  }
-}
+//class Support extends StatefulWidget {
+//  @override
+//  _SupportState createState() => _SupportState();
+//}
+//
+//class _SupportState extends State<Support> {
+//  @override
+//  Widget build(BuildContext context) {
+//    return MaterialApp(
+//      home: support(),
+//    );
+//  }
+//}
 
 class support extends StatefulWidget {
   @override
@@ -27,6 +27,12 @@ class _supportState extends State<support> {
     return Scaffold(
       appBar: AppBar(
         title: Text('HELPDESK'),
+        leading: InkWell(
+          child: Icon(Icons.arrow_back),
+          onTap: (){
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Container(
         child: Column(
