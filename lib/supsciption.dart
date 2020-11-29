@@ -56,7 +56,10 @@ class _subscribeState extends State<subscribe> {
 
     CollectionReference doc = Firestore.instance.collection("users");
     QuerySnapshot snap =  await doc.getDocuments();
-    snap.documents[0].reference.update({"paid": true});
+    snap.documents[0].reference.update(
+        {"paid": true,
+        }
+    );
 
   }
 

@@ -23,7 +23,6 @@ void main() {
   });
 }
 Color mycolor = Colors.orange;
-String name;
 
 class Compass extends StatefulWidget {
 
@@ -98,7 +97,7 @@ class _CompassState extends State<Compass> {
                       context,
                       MaterialPageRoute(builder: (context) => subscribe(widget.username)),
                     );
-                    name=widget.username;
+
                   },
                   child: Text('MY SUBSCRIPTION'),
                 ),
@@ -110,7 +109,7 @@ class _CompassState extends State<Compass> {
                       context,
                       MaterialPageRoute(builder: (context) => support()),
                     );
-                    name=widget.username;
+
                   },
                   child: Text('SUPPORT'),
                 ),
@@ -130,12 +129,14 @@ class _CompassState extends State<Compass> {
 //                 height: 100,
 //                  width: 100,),
                     Text('VASTU POWER'),
+
                   ],
                 ),
+
            backgroundColor: Colors.blue,
              )  ,
             backgroundColor: Colors.white,
-           body:CompassRed(direction: _direction)
+           body:CompassRed(widget.username,direction: _direction,)
         ));
 
   }
@@ -143,12 +144,16 @@ class _CompassState extends State<Compass> {
 
 class CompassRed extends StatefulWidget {
 
+
+
+
   const CompassRed(
+  this.name,
       {
     Key key,
     @required double direction,
   }) : _direction = direction, super(key: key);
-
+  final name;
   final double _direction;
 
 
@@ -160,12 +165,12 @@ class CompassRed extends StatefulWidget {
 class _CompassRedState extends State<CompassRed> {
   @override
   Widget build(BuildContext context) {
-    double dirs=((widget._direction ?? 0) * (pi / 180) *-1);
+
 
     return StreamBuilder(
       stream: Firestore.instance
           .collection("users").where(
-          "username", isEqualTo: name)
+          "username", isEqualTo: widget.name)
           .snapshots(),
       builder: (context,snapshot){
         return Builder(
@@ -176,7 +181,8 @@ class _CompassRedState extends State<CompassRed> {
             fees = obj["paid"];
             end = obj["endTime"];
             endtime =end.toDate();
-
+//            print(endtime);
+//            print(widget.name);
             return Container(
                 child: ((Currenttime().isBefore(endtime) )|| (fees) ) ?
                 SafeArea(
@@ -223,19 +229,19 @@ class _CompassRedState extends State<CompassRed> {
                           ),
                         ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                          height: 30,
-                          child: Text(DirDisplay(dirs),
-                            style: TextStyle(
-                                fontSize: 30,
-                                color: mycolor,
-                                fontWeight: FontWeight.bold
-                            ),
-                          ),
-                        ),
-                      ),
+//                      Expanded(
+//                        flex: 1,
+//                        child: Container(
+//                          height: 30,
+//                          child: Text(DirDisplay(widget._direction),
+//                            style: TextStyle(
+//                                fontSize: 30,
+//                                color: mycolor,
+//                                fontWeight: FontWeight.bold
+//                            ),
+//                          ),
+//                        ),
+//                      ),
 
                       Container(
                         height: 50,
