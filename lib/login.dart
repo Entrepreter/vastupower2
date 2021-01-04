@@ -130,7 +130,7 @@ class _loginpageState extends State<loginpage> {
               ),
             ),
             SizedBox(
-              height: 40,
+              height: 20,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 30,right: 30),
@@ -232,7 +232,7 @@ class _loginpageState extends State<loginpage> {
   }
 
   void Navig() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => Compass(_email)));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Compass1(_email)));
   }
 
   Future<void> SignUp() async {

@@ -54,12 +54,8 @@ class _subscribeState extends State<subscribe> {
     Fluttertoast.showToast(
         msg: "SUCCESS: " + response.paymentId, timeInSecForIosWeb: 4);
 
-    CollectionReference doc = Firestore.instance.collection("users");
-    QuerySnapshot snap =  await doc.getDocuments();
-    snap.documents[0].reference.update(
-        {"paid": true,
-        }
-    );
+
+
 
   }
 
@@ -81,8 +77,8 @@ class _subscribeState extends State<subscribe> {
 
   void Payment() {
     var options = {
-      'key': 'rzp_test_UerTR8J9A3oLKP',
-      'amount': 200000,
+      'key': 'rzp_live_0cNNgEmj8Hvl62',
+      'amount': 145000,
       'name': 'VASTU POWER',
       'description': 'Payment for 1 year subscription',
 //    'prefill': {
@@ -173,7 +169,7 @@ class _subscribeState extends State<subscribe> {
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
                                       Text(
-                                        'You have not Subscribed to the annual pack \n Subscribe at 2000/- for a year',
+                                        'You have not Subscribed to the annual pack \n Subscribe at 1450/- for a year',
                                         style: TextStyle(
                                           fontSize: 15,
                                           fontFamily: 'Lora',

@@ -60,12 +60,12 @@ class _supportState extends State<support> {
               flex: 1,
               child: ListTile(
                 onTap: (){
-                  launch('tel:+91-9711232757');
+                  launch('tel:+91-9582076355');
                 },
                 leading:FaIcon(FontAwesomeIcons.whatsapp,
                   size: 25,
                 color: Colors.green,),
-                title: Text('+91-9711232757',
+                title: Text('+91-9582076355',
                   style: TextStyle(
                       fontSize: 20
                   ),),
@@ -75,12 +75,12 @@ class _supportState extends State<support> {
               flex: 1,
               child: ListTile(
                 onTap: (){
-                  launch('mailto:admin@anthemitsol.com');
+                  launch('mailto:reyanshsoftware.in@gmail.com');
                 },
                 leading: Icon(Icons.mail,
                   size: 25,
                 color: Colors.red,),
-                title: Text('admin@anthemitsol.com',
+                title: Text('reyanshsoftware.in@gmail.com',
                   style: TextStyle(
                       fontSize: 20
                   ),),
@@ -90,11 +90,11 @@ class _supportState extends State<support> {
               flex: 1,
               child: ListTile(
                 onTap: (){
-                  launch('http://anthemitsol.com/');
+                  launch('https://www.reyanshsoftware.in/');
                 },
-                leading: Image.asset('assets/anthem.png',
+                leading: Image.asset('assets/appicon1.png',
                 height: 30,),
-                title: Text('http://anthemitsol.com/',
+                title: Text('www.reyanshsoftware.in/',
                   style: TextStyle(
                       fontSize: 20
                   ),),
