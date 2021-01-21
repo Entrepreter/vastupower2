@@ -28,7 +28,7 @@ class _objectsState extends State<objects> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('OBJECTS'),
+        title: Text('ARTICLES'),
         leading: InkWell(
           child: Icon(Icons.arrow_back),
           onTap: (){

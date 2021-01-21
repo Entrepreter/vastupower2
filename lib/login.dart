@@ -95,71 +95,195 @@ class _loginpageState extends State<loginpage> {
   }
 
   List<Widget> Fields() {
-    return [
-//      SizedBox(
-//        height: 50,
-//      ),
-      Expanded(
-        child: Image(
-          image: AssetImage('assets/appicon.png'),
+    if (Ftype == FormType.login) {
+      return [
+        Expanded(
+          child: Image(
+            image: AssetImage('assets/appicon.png'),
+          ),
+
         ),
 
-      ),
+        Expanded(
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(left: 30, right: 30),
+                child: TextFormField(
 
-      Expanded(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(left: 30,right: 30),
-              child: TextFormField(
+                  decoration: InputDecoration(
+                    fillColor: Colors.white,
+                    filled: true,
 
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  filled: true,
-
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  hintText: 'YOUR EMAIL',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    hintText: 'YOUR EMAIL',
+                  ),
+                  validator: (value) {
+                    return value.isEmpty ? 'Email is required' : null;
+                  },
+                  onSaved: (value) {
+                    return _email = value;
+                  },
                 ),
-                validator: (value) {
-                  return value.isEmpty ? 'Email is required' : null;
-                },
-                onSaved: (value) {
-                  return _email = value;
-                },
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 30,right: 30),
-              child: TextFormField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  filled: true,
+              SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 30, right: 30),
+                child: TextFormField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    fillColor: Colors.white,
+                    filled: true,
 
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  hintText: 'YOUR PASSWORD',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    hintText: 'YOUR PASSWORD',
+                  ),
+                  validator: (value) {
+                    return value.isEmpty ? 'Password is required' : null;
+                  },
+                  onSaved: (value) {
+                    return _password = value;
+                  },
                 ),
-                validator: (value) {
-                  return value.isEmpty ? 'Password is required' : null;
-                },
-                onSaved: (value) {
-                  return _password = value;
-                },
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
 
 
+      ];
+    }
+    else{
+      return [
+        Expanded(
+          child: Image(
+            image: AssetImage('assets/appicon.png'),
+          ),
 
-    ];
+        ),
+
+        Expanded(
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10 ),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
+
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          hintText: 'YOUR EMAIL',
+                        ),
+                        validator: (value) {
+                          return value.isEmpty ? 'Email is required' : null;
+                        },
+                        onSaved: (value) {
+                          return _email = value;
+                        },
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: TextFormField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
+
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          hintText: 'YOUR PASSWORD',
+                        ),
+                        validator: (value) {
+                          return value.isEmpty ? 'Password is required' : null;
+                        },
+                        onSaved: (value) {
+                          return _password = value;
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only( left: 10),
+                      child: TextFormField(
+
+                        decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
+
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          hintText: 'YOUR NAME',
+                        ),
+                        validator: (value) {
+                          return value.isEmpty ? 'Name is required' : null;
+                        },
+                        onSaved: (value) {
+                          return name = value;
+                        },
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: TextFormField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
+
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          hintText: 'YOUR PHONE NO.',
+                        ),
+                        validator: (value) {
+                          return value.isEmpty ? 'Phone no. is required' : null;
+                        },
+                        onSaved: (value) {
+                          return phoneno = value;
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+            ],
+          ),
+        ),
+
+      ];
+    }
   }
+
+  String  name;
+  String phoneno;
 
   List<Widget> Buttons() {
     if (Ftype == FormType.login) {
@@ -260,7 +384,9 @@ class _loginpageState extends State<loginpage> {
       "username": _email,
       "paid" : false,
       "startTime" : Currenttime(),
-      "endTime" : Endtime()
+      "endTime" : Endtime(),
+      "name" : name,
+      "phone no": phoneno
     });
 
   }

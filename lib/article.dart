@@ -34,7 +34,7 @@ class _articlesState extends State<articles> {
               Navigator.pop(context);
             },
           ),
-          title: Text('ARTICLES'),
+          title: Text('OBJECTS'),
           backgroundColor: Colors.blue,
         ),
         body: GridView.count(
