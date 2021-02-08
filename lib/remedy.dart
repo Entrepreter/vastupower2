@@ -36,12 +36,11 @@ import 'package:vastupower/objects.dart';
 //}
 
 class remedies extends StatefulWidget {
+  remedies(this.object, this.direction) : super();
 
-  remedies(this.object,this.direction) : super();
+  String object, direction;
 
-  String object,direction;
-
-   @override
+  @override
   _remediesState createState() => _remediesState();
 }
 
@@ -49,83 +48,78 @@ class _remediesState extends State<remedies> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: InkWell(
-          child: Icon(Icons.arrow_back),
-          onTap: (){
-            Navigator.pop(context);
-          },
+        appBar: AppBar(
+          leading: InkWell(
+            child: Icon(Icons.arrow_back),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          title: Text('DESCRIPTION'),
+          backgroundColor: Colors.blue,
         ),
-        title: Text('DESCRIPTION'),
-        backgroundColor: Colors.blue,
-      ),
+        body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+            ///TODO uncomment this in your version of flutter - if it is not deprecated
+            // colors: [Colors.white,Colors.orange],
+            begin: Alignment.topCenter,
 
-    body: Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Colors.white,Colors.orange],
-          begin: Alignment.topCenter,
-          stops: [0.01,0.8]
-        )
-      ),
-      child: StreamBuilder(
-        stream: Firestore.instance
-            .collection(widget.object)
-            .where("Dir", isEqualTo: widget.direction)
-            .snapshots(),
-        builder: (context, snapshot){
-          try {
-            if (snapshot.hasData) {
-              return ListView.builder(
-                itemCount: 1,
-                itemBuilder: (context, index) {
-                  DocumentSnapshot obj = snapshot.data.documents[0];
-                  return Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-
-                      children: <Widget>[
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(obj["Desc"],
-                          style: TextStyle(
-                              fontSize: 20
-                          ),),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(obj["Rem"],
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold
-                          ),)
-                      ],
-                    ),
-                  );
-                },
-              );
-            }
-            else {
-              return Center(child: Text('Loading....',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold
-                ),));
-            }
-          }
-          catch(e){
-            return Center(child: Text('No DATA',
-              style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold
-              ),));
-          }
-      }
-      ),
-    )
-    );
-    }
+            ///TODO uncomment this in your version of flutter - if it is not deprecated
+            // stops: [0.01,0.8]
+          )),
+          child: StreamBuilder(
+              stream: Firestore.instance
+                  .collection(widget.object)
+                  .where("Dir", isEqualTo: widget.direction)
+                  .snapshots(),
+              builder: (context, snapshot) {
+                try {
+                  if (snapshot.hasData) {
+                    return ListView.builder(
+                      itemCount: 1,
+                      itemBuilder: (context, index) {
+                        DocumentSnapshot obj = snapshot.data.documents[0];
+                        return Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Column(
+                            children: <Widget>[
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                obj["Desc"],
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                obj["Rem"],
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  } else {
+                    return Center(
+                        child: Text(
+                      'Loading....',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ));
+                  }
+                } catch (e) {
+                  return Center(
+                      child: Text(
+                    'No DATA',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ));
+                }
+              }),
+        ));
   }
-
-
+}
